@@ -1,0 +1,46 @@
+﻿@using NoteApplication.Models;
+@model List<Task>
+@{
+    ViewBag.Title = "Заметки";
+}
+<div>
+
+    @if (Model.Count == 0)
+    {
+        <div>
+            <h3>Элементов нет</h3>
+        </div>
+    }
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <td>
+                    <h3>Дело</h3>
+                </td>
+                <td>
+                    <h3>Время создания</h3>
+                </td>
+                <td>
+                    <h3>Действие</h3>
+                </td>
+            </tr>
+            @foreach (Task task in Model)
+            {
+                <tr>
+                    <td>@task.Description</td>
+
+                    <td>@task.DateOfCreate</td>
+                    <td>
+                        <div class="btn-group">
+                            @Html.ActionLink("Редактировать", "Edit", new {id = task.Id}, new {@class = "btn btn-default"})
+                            @Html.ActionLink("Удалить", "Remove", new {id = task.Id}, new {@class = "btn btn-default "})
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+    @Html.ActionLink("Добавить заметку", "Add", new {}, new {@class = "btn btn-success "})
+
+</div>

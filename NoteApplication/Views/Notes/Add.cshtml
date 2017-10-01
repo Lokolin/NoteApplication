@@ -1,0 +1,15 @@
+﻿@using NoteApplication.Models;
+
+@model Task
+
+@{
+    ViewBag.Title = "Добавить";
+}
+
+<h3>Добавить заметку</h3>
+<br/>
+@using (Html.BeginForm("Add","Notes"))
+{
+    Html.RenderPartial("_TaskForm", Model);
+
+}

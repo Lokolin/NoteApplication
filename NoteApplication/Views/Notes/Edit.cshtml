@@ -1,0 +1,13 @@
+﻿@model NoteApplication.Models.Task
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактирование</h2>
+<br/>
+@using (Html.BeginForm("Edit", "Notes"))
+{
+    @Html.HiddenFor(task => task.Id)
+    Html.RenderPartial("_TaskForm", Model);
+}
